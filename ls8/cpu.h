@@ -3,10 +3,12 @@
 
 // Holds all information about the CPU
 struct cpu {
-  // TODO
   // PC
+  unsigned int pc;
   // registers (array)
+  unsigned char reg[8];
   // ram (array)
+  unsigned char ram[256];
 };
 
 // ALU operations
@@ -23,11 +25,12 @@ enum alu_op {
 #define LDI  0b10000010
 #define HLT  0b00000001
 #define PRN  0b01000111
+#define MUL  0b10100010
 // TODO: more instructions here. These can be used in cpu_run().
 
 // Function declarations
 
-extern void cpu_load(struct cpu *cpu);
+extern void cpu_load(struct cpu *cpu, char * filepath);
 extern void cpu_init(struct cpu *cpu);
 extern void cpu_run(struct cpu *cpu);
 
